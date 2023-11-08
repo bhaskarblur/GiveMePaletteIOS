@@ -13,6 +13,11 @@
 		8C3A640A2AFB2BAB0074FAA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64092AFB2BAB0074FAA5 /* Preview Assets.xcassets */; };
 		8C3A640C2AFB2BAB0074FAA5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A640B2AFB2BAB0074FAA5 /* Persistence.swift */; };
 		8C3A640F2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A640D2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld */; };
+		8C3A64162AFB2C400074FAA5 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A64152AFB2C3F0074FAA5 /* AppMainView.swift */; };
+		8C3A64182AFB39B50074FAA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A64172AFB39B50074FAA5 /* HomeView.swift */; };
+		8C3A64222AFB42EA0074FAA5 /* btnbgEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */; };
+		8C3A64232AFB42EA0074FAA5 /* fieldbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64202AFB42EA0074FAA5 /* fieldbg.png */; };
+		8C3A64242AFB42EA0074FAA5 /* btnbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64212AFB42EA0074FAA5 /* btnbg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		8C3A64092AFB2BAB0074FAA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8C3A640B2AFB2BAB0074FAA5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8C3A640E2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GiveMePaletteIOS.xcdatamodel; sourceTree = "<group>"; };
+		8C3A64152AFB2C3F0074FAA5 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
+		8C3A64172AFB39B50074FAA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnbgEnabled.png; sourceTree = "<group>"; };
+		8C3A64202AFB42EA0074FAA5 /* fieldbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fieldbg.png; sourceTree = "<group>"; };
+		8C3A64212AFB42EA0074FAA5 /* btnbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnbg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +65,17 @@
 		8C3A64012AFB2BA80074FAA5 /* GiveMePaletteIOS */ = {
 			isa = PBXGroup;
 			children = (
+				8C3A64212AFB42EA0074FAA5 /* btnbg.png */,
+				8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */,
+				8C3A64202AFB42EA0074FAA5 /* fieldbg.png */,
 				8C3A64022AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift */,
 				8C3A64042AFB2BA80074FAA5 /* ContentView.swift */,
 				8C3A64062AFB2BAB0074FAA5 /* Assets.xcassets */,
 				8C3A640B2AFB2BAB0074FAA5 /* Persistence.swift */,
 				8C3A640D2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld */,
 				8C3A64082AFB2BAB0074FAA5 /* Preview Content */,
+				8C3A64152AFB2C3F0074FAA5 /* AppMainView.swift */,
+				8C3A64172AFB39B50074FAA5 /* HomeView.swift */,
 			);
 			path = GiveMePaletteIOS;
 			sourceTree = "<group>";
@@ -131,8 +146,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C3A64222AFB42EA0074FAA5 /* btnbgEnabled.png in Resources */,
 				8C3A640A2AFB2BAB0074FAA5 /* Preview Assets.xcassets in Resources */,
+				8C3A64242AFB42EA0074FAA5 /* btnbg.png in Resources */,
 				8C3A64072AFB2BAB0074FAA5 /* Assets.xcassets in Resources */,
+				8C3A64232AFB42EA0074FAA5 /* fieldbg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3A640F2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld in Sources */,
+				8C3A64162AFB2C400074FAA5 /* AppMainView.swift in Sources */,
 				8C3A640C2AFB2BAB0074FAA5 /* Persistence.swift in Sources */,
+				8C3A64182AFB39B50074FAA5 /* HomeView.swift in Sources */,
 				8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */,
 				8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */,
 			);
