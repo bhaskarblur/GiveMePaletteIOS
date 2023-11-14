@@ -29,9 +29,7 @@ struct AppMainView: View {
                     }
                     
                     
-                    VStack {
-                        Text("Generator")
-                    }
+                generateView()
                     .tabItem {
                         VStack {
                             Image(systemName: "pencil.slash")
