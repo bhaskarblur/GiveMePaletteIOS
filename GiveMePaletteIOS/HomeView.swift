@@ -10,12 +10,15 @@ import SwiftUI
 struct HomeView: View {
     
     @State var addedHex : String = ""
+    @State var rgbColor : String = ""
     @State private var scale = 1.0
     @State private var scale2 = 1.0
     var body: some View {
         ZStack {
+            addedHex.count > 5 ?
+            Color(uiColor: hexStringToUIColor(hex: "#\(addedHex)")).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/) :
             Color("bgColor").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-  
+         
         VStack {
             HStack {
                 
@@ -40,9 +43,16 @@ struct HomeView: View {
                         
                         Text("hex")
                         
-                    }).font(.system(size: 20, weight: .semibold))
+                    }).font(.system(size: 18, weight: .semibold))
                         .onReceive(addedHex.publisher.collect()) {
                             self.addedHex = String($0.prefix(6))
+                            if(addedHex.count > 5) {
+                                let rgb = hexStringToRGBA(hex: addedHex)
+                                self.rgbColor = "rgb(\(String(format:"%.2f",rgb.red)),\(String(format:"%.2f", rgb.green)),\(String(format:"%.2f", rgb.red)))"
+                            }
+                            else {
+                                self.rgbColor = ""
+                            }
                         }
                 }.padding().padding(.bottom, 6).background(
                     Image("fieldBg")
@@ -55,13 +65,15 @@ struct HomeView: View {
                     Image(systemName: "paintbrush.fill").resizable()
                         .frame(width: 24, height: 24)
                     Spacer().frame(width: 12)
-                    TextField(text: $addedHex, label:  {
+                    
+                    TextField(text: $rgbColor, label:  {
                         
-                        Text("rgb")
+                        Text("rgb()")
                         
-                    }).font(.system(size: 20, weight: .semibold))
+                    }).font(.system(size: 18, weight: .semibold))
                         .onReceive(addedHex.publisher.collect()) {
                             self.addedHex = String($0.prefix(6))
+                            
                         }
                 }.padding().padding(.bottom, 6).background(
                     Image("fieldBg")
@@ -82,7 +94,7 @@ struct HomeView: View {
                         }
                     }, label: {
                         Text("Save").frame(width: 78)
-                            .font(.system(size: 22, weight: .semibold))
+                            .font(.system(size: 20, weight: .semibold))
                     }).padding().padding(.bottom, 6).background(
                         Image(addedHex.count > 2  ? "btnBgEnabled" : "btnBg")
                             .resizable()
@@ -104,7 +116,7 @@ struct HomeView: View {
                         }
                     }, label: {
                         Text("Clear").frame(width: 78)
-                            .font(.system(size: 22, weight: .medium))
+                            .font(.system(size: 20, weight: .medium))
                     }).padding().padding(.bottom, 6)
                         .foregroundColor(addedHex.count > 2  ? .black : .gray)
                         .scaleEffect(scale2)

@@ -7,19 +7,22 @@
 
 import SwiftUI
 
-struct colorModel : Identifiable {
+class colorModel : Identifiable {
     var id: String {
         self.hexCode
        }
     @State var bgColor: UIColor ;
     @State var hexCode : String;
     @State var isSaved : Bool;
+    @State var name : String = "";
     
     init(bgColor: UIColor, hexCode: String, isSaved: Bool) {
         self.bgColor = bgColor
         self.hexCode = hexCode
         self.isSaved = isSaved
+   
     }
+    
 }
 
 class colorViewModel : ObservableObject {
@@ -65,12 +68,12 @@ struct generateView: View {
                                 }
                             }, label: {
                                 Text("Save").frame(width: 78)
-                                    .font(.system(size: 22, weight: .semibold))
+                                    .font(.system(size: 20, weight: .semibold))
                             }).padding().padding(.bottom, 6).background(
                                 Image("btnBgEnabled")
                                     .resizable()
                                     .edgesIgnoringSafeArea(.all)
-                                    .frame(height: 64))
+                                    .frame(height: 58))
                             .foregroundColor(.black)
                             .scaleEffect(scale)
                             .animation(.linear, value: scale)
@@ -86,12 +89,12 @@ struct generateView: View {
                                 }
                             }, label: {
                                 Text("Generate").frame(width: 114)
-                                    .font(.system(size: 22, weight: .semibold))
+                                    .font(.system(size: 20, weight: .semibold))
                             }).padding().padding(.bottom, 6).background(
                                 Image("btnBgEnabled")
                                     .resizable()
                                     .edgesIgnoringSafeArea(.all)
-                                    .frame(height: 64))
+                                    .frame(height: 58))
                             .foregroundColor(.black)
                             .scaleEffect(scale2)
                             .animation(.linear, value: scale2)

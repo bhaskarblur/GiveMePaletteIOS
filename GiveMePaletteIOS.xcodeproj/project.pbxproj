@@ -20,6 +20,9 @@
 		8C3A64222AFB42EA0074FAA5 /* btnbgEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */; };
 		8C3A64232AFB42EA0074FAA5 /* fieldbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64202AFB42EA0074FAA5 /* fieldbg.png */; };
 		8C3A64242AFB42EA0074FAA5 /* btnbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64212AFB42EA0074FAA5 /* btnbg.png */; };
+		8C82DFE02B04DD2D00951E9D /* savedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82DFDF2B04DD2D00951E9D /* savedView.swift */; };
+		8C82DFE22B04DE2C00951E9D /* tabBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE12B04DE2C00951E9D /* tabBg.png */; };
+		8C82DFE42B04DE4900951E9D /* tabBgDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnbgEnabled.png; sourceTree = "<group>"; };
 		8C3A64202AFB42EA0074FAA5 /* fieldbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fieldbg.png; sourceTree = "<group>"; };
 		8C3A64212AFB42EA0074FAA5 /* btnbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnbg.png; sourceTree = "<group>"; };
+		8C82DFDF2B04DD2D00951E9D /* savedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedView.swift; sourceTree = "<group>"; };
+		8C82DFE12B04DE2C00951E9D /* tabBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBg.png; sourceTree = "<group>"; };
+		8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBgDisabled.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 		8C3A64012AFB2BA80074FAA5 /* GiveMePaletteIOS */ = {
 			isa = PBXGroup;
 			children = (
+				8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */,
+				8C82DFE12B04DE2C00951E9D /* tabBg.png */,
+				8C82DFDF2B04DD2D00951E9D /* savedView.swift */,
 				8C3A64212AFB42EA0074FAA5 /* btnbg.png */,
 				8C3A641F2AFB42EA0074FAA5 /* btnbgEnabled.png */,
 				8C3A64202AFB42EA0074FAA5 /* fieldbg.png */,
@@ -152,8 +161,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C82DFE42B04DE4900951E9D /* tabBgDisabled.png in Resources */,
 				8C3A64222AFB42EA0074FAA5 /* btnbgEnabled.png in Resources */,
 				8C3A640A2AFB2BAB0074FAA5 /* Preview Assets.xcassets in Resources */,
+				8C82DFE22B04DE2C00951E9D /* tabBg.png in Resources */,
 				8C3A64242AFB42EA0074FAA5 /* btnbg.png in Resources */,
 				8C3A64072AFB2BAB0074FAA5 /* Assets.xcassets in Resources */,
 				8C3A64232AFB42EA0074FAA5 /* fieldbg.png in Resources */,
@@ -173,6 +184,7 @@
 				8C3A64162AFB2C400074FAA5 /* AppMainView.swift in Sources */,
 				8C3A640C2AFB2BAB0074FAA5 /* Persistence.swift in Sources */,
 				8C3A64182AFB39B50074FAA5 /* HomeView.swift in Sources */,
+				8C82DFE02B04DD2D00951E9D /* savedView.swift in Sources */,
 				8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */,
 				8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */,
 			);

@@ -38,9 +38,7 @@ struct AppMainView: View {
                         }
                     }
                     
-                    VStack {
-                        Text("Saved")
-                    }
+                savedView()
                     .tabItem {
                         VStack {
                             Image(systemName: "bookmark.fill")
