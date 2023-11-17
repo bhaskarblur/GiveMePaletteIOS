@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityIndicatorView
 
 class colorModel : Identifiable {
     var id: String {
@@ -26,25 +27,43 @@ class colorModel : Identifiable {
 }
 
 class colorViewModel : ObservableObject {
-    @Published var colorList : [colorModel] = [colorModel(bgColor: hexStringToUIColor(hex:"#2cabe1"), hexCode:"#2cabe1",
-                                                          isSaved: true),
-                                               colorModel(bgColor: hexStringToUIColor(hex:"#0d9e24"), hexCode:"#0d9e24",
-                                                                                isSaved: false),
-                                               colorModel(bgColor: hexStringToUIColor(hex:"#d01b5c"), hexCode:"#d01b5c",
-                                                                                isSaved: false),
-                                               colorModel(bgColor: hexStringToUIColor(hex:"#e2b412"),
-                                                          hexCode:"#e2b412",
-                                                                                isSaved: false), 
-                                               colorModel(bgColor: hexStringToUIColor(hex:"#8F0BBD"), hexCode:"#8F0BBD",
-                                                                                isSaved: false),
-    ]
+    @Published var colorList : [colorModel] = []
+    @Published var isNotLoaded = true;
+    
+    init() {
+        generateList()
+    }
+    func generateList() {
+        isNotLoaded = true
+        
+        let randomColorList = generateRandomHexList(length: 5)
+  
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        if(randomColorList.count > 0 ) {
+            self.colorList.removeAll()
+        }
+        for color in randomColorList {
+            
+            self.colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: false))
+        }
+        
+     
+            self.isNotLoaded = false
+            
+        }
+    
+        
+    }
+    
     
 }
 
 struct generateView: View {
-    @ObservedObject var ViewModel = colorViewModel()
+    @ObservedObject private var ViewModel = colorViewModel()
+    
     @State private var scale = 1.0
     @State private var scale2 = 1.0
+    
     var body: some View {
         ZStack {
             Color("bgColor").ignoresSafeArea(.all)
@@ -52,11 +71,17 @@ struct generateView: View {
             VStack {
                 ScrollView {
                     ScrollView {
-                        ForEach(ViewModel.colorList) { color in
-                            colorTile(colorModel: color)
-                            
-                        }
                         
+                   
+                        ActivityIndicatorView(isVisible: $ViewModel.isNotLoaded, type: .arcs(count: 1, lineWidth: 3.0))
+                            .frame(width: 50, height: 35).padding()
+
+                            ForEach(ViewModel.colorList) { color in
+                                colorTile(colorModel: color)
+                                
+                            }
+                        }
+                    
                         Spacer().frame(height: 50)
                         
                         HStack {
@@ -82,10 +107,12 @@ struct generateView: View {
                             Spacer().frame(width: 20)
                             
                             Button(action: {
-                                self.scale2 = 1.4
-                                
+                                ViewModel.generateList()
+                        
                                 withAnimation(Animation.spring().delay(0.2)) {
-                                    self.scale2 = 1
+                               
+                                  
+                                  
                                 }
                             }, label: {
                                 Text("Generate").frame(width: 114)
@@ -107,10 +134,10 @@ struct generateView: View {
             }
         }
     }
-}
 
 struct colorTile : View {
     var colorModel : colorModel;
+    @State private var showBottomSheet = false
     
     init(colorModel: colorModel) {
         self.colorModel = colorModel
@@ -140,6 +167,12 @@ struct colorTile : View {
                 
            
         }.frame(height: 132)
+            .onTapGesture {
+                showBottomSheet.toggle()
+            }
+            .sheet(isPresented: $showBottomSheet, content: {
+                saveBottomSheet(colorList: [])
+            })
     }
 }
 

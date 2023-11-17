@@ -23,6 +23,10 @@
 		8C82DFE02B04DD2D00951E9D /* savedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82DFDF2B04DD2D00951E9D /* savedView.swift */; };
 		8C82DFE22B04DE2C00951E9D /* tabBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE12B04DE2C00951E9D /* tabBg.png */; };
 		8C82DFE42B04DE4900951E9D /* tabBgDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */; };
+		8CF921CC2B0795FB001981CA /* colorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF921CB2B0795FB001981CA /* colorHelper.swift */; };
+		8CF921D12B079CC2001981CA /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 8CF921D02B079CC2001981CA /* ActivityIndicatorView */; };
+		8CF921D32B07A0F7001981CA /* iconBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF921D22B07A0F6001981CA /* iconBg.png */; };
+		8CF921D52B07A128001981CA /* saveBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF921D42B07A128001981CA /* saveBottomSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,9 @@
 		8C82DFDF2B04DD2D00951E9D /* savedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedView.swift; sourceTree = "<group>"; };
 		8C82DFE12B04DE2C00951E9D /* tabBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBg.png; sourceTree = "<group>"; };
 		8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBgDisabled.png; sourceTree = "<group>"; };
+		8CF921CB2B0795FB001981CA /* colorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorHelper.swift; sourceTree = "<group>"; };
+		8CF921D22B07A0F6001981CA /* iconBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBg.png; sourceTree = "<group>"; };
+		8CF921D42B07A128001981CA /* saveBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveBottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF921D12B079CC2001981CA /* ActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,8 @@
 		8C3A64012AFB2BA80074FAA5 /* GiveMePaletteIOS */ = {
 			isa = PBXGroup;
 			children = (
+				8CF921D22B07A0F6001981CA /* iconBg.png */,
+				8CF921CB2B0795FB001981CA /* colorHelper.swift */,
 				8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */,
 				8C82DFE12B04DE2C00951E9D /* tabBg.png */,
 				8C82DFDF2B04DD2D00951E9D /* savedView.swift */,
@@ -91,6 +101,7 @@
 				8C3A64172AFB39B50074FAA5 /* HomeView.swift */,
 				8C1372D12B02B4460017ED9F /* generateView.swift */,
 				8C1372D32B02B5800017ED9F /* helperClass.swift */,
+				8CF921D42B07A128001981CA /* saveBottomSheet.swift */,
 			);
 			path = GiveMePaletteIOS;
 			sourceTree = "<group>";
@@ -119,6 +130,9 @@
 			dependencies = (
 			);
 			name = GiveMePaletteIOS;
+			packageProductDependencies = (
+				8CF921D02B079CC2001981CA /* ActivityIndicatorView */,
+			);
 			productName = GiveMePaletteIOS;
 			productReference = 8C3A63FF2AFB2BA80074FAA5 /* GiveMePaletteIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 8C3A63F62AFB2BA80074FAA5;
+			packageReferences = (
+				8CF921CF2B079CC2001981CA /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+			);
 			productRefGroup = 8C3A64002AFB2BA80074FAA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -168,6 +185,7 @@
 				8C3A64242AFB42EA0074FAA5 /* btnbg.png in Resources */,
 				8C3A64072AFB2BAB0074FAA5 /* Assets.xcassets in Resources */,
 				8C3A64232AFB42EA0074FAA5 /* fieldbg.png in Resources */,
+				8CF921D32B07A0F7001981CA /* iconBg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,11 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C1372D22B02B4460017ED9F /* generateView.swift in Sources */,
+				8CF921CC2B0795FB001981CA /* colorHelper.swift in Sources */,
 				8C3A640F2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld in Sources */,
 				8C1372D42B02B5800017ED9F /* helperClass.swift in Sources */,
 				8C3A64162AFB2C400074FAA5 /* AppMainView.swift in Sources */,
 				8C3A640C2AFB2BAB0074FAA5 /* Persistence.swift in Sources */,
 				8C3A64182AFB39B50074FAA5 /* HomeView.swift in Sources */,
+				8CF921D52B07A128001981CA /* saveBottomSheet.swift in Sources */,
 				8C82DFE02B04DD2D00951E9D /* savedView.swift in Sources */,
 				8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */,
 				8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */,
@@ -390,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8CF921CF2B079CC2001981CA /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8CF921D02B079CC2001981CA /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CF921CF2B079CC2001981CA /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8C3A640D2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld */ = {

@@ -90,3 +90,27 @@ func hslFromColor(_ color: Color) -> Hsl {
 
     return Hsl(h: Double(h), s: Double(s), l: Double(l))
 }
+
+func generateRandomHexList(length : Int) -> [String] {
+    
+    var listColors : [String] = []
+    for _ in 1...length {
+    
+        let randomUICl = randomUIColor
+        let hexCode = hexStringFromColor(color: randomUICl)
+        
+        listColors.append(hexCode)
+        
+    }
+    
+    return listColors
+}
+
+var randomUIColor : UIColor {
+      return UIColor(
+          red: .random(in: 0...1),
+          green: .random(in: 0...1),
+          blue: .random(in: 0...1),
+          alpha: 1.0
+      )
+  }
