@@ -24,6 +24,10 @@ class colorModel : Identifiable {
    
     }
     
+    func changeIsSaved(saved : Bool) {
+        self.isSaved = saved
+    }
+    
 }
 
 class colorViewModel : ObservableObject {
@@ -63,7 +67,11 @@ struct generateView: View {
     
     @State private var scale = 1.0
     @State private var scale2 = 1.0
+    @State private var showBottomSheet = false
     
+    func hideBottomSheet() {
+        showBottomSheet = false
+    }
     var body: some View {
         ZStack {
             Color("bgColor").ignoresSafeArea(.all)
@@ -72,11 +80,10 @@ struct generateView: View {
                 ScrollView {
                     ScrollView {
                         
-                   
                         ActivityIndicatorView(isVisible: $ViewModel.isNotLoaded, type: .arcs(count: 1, lineWidth: 3.0))
                             .frame(width: 50, height: 35).padding()
 
-                            ForEach(ViewModel.colorList) { color in
+                            ForEach(ViewModel.colorList) {color in
                                 colorTile(colorModel: color)
                                 
                             }
@@ -90,6 +97,7 @@ struct generateView: View {
                                 
                                 withAnimation(Animation.spring().delay(0.2)) {
                                     self.scale = 1
+                                    showBottomSheet.toggle()
                                 }
                             }, label: {
                                 Text("Save").frame(width: 78)
@@ -131,13 +139,18 @@ struct generateView: View {
                         Spacer().frame(height: 50)
                     }
                 }
+            .sheet(isPresented: $showBottomSheet, content: {
+                saveBottomSheet(colorList: [], dismiss: hideBottomSheet)
+                    .presentationDetents([.height(390),.medium])
+            })
             }
         }
     }
 
+
+
 struct colorTile : View {
     var colorModel : colorModel;
-    @State private var showBottomSheet = false
     
     init(colorModel: colorModel) {
         self.colorModel = colorModel
@@ -159,7 +172,7 @@ struct colorTile : View {
                     .frame(width:colorModel.isSaved ? 16 : 20, height:colorModel.isSaved ? 20 : 20)
                     .opacity(0.8)
                     .onTapGesture {
-                        colorModel.isSaved.toggle()
+                        colorModel.changeIsSaved(saved: colorModel.isSaved == true ? false : true)
                     }
                 
                 
@@ -167,12 +180,7 @@ struct colorTile : View {
                 
            
         }.frame(height: 132)
-            .onTapGesture {
-                showBottomSheet.toggle()
-            }
-            .sheet(isPresented: $showBottomSheet, content: {
-                saveBottomSheet(colorList: [])
-            })
+         
     }
 }
 

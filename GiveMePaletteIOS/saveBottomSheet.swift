@@ -13,17 +13,21 @@ struct saveBottomSheet: View {
     @State private var name = ""
     @State private var desc = ""
     private let colorList : [colorModel]
+    private var dismiss : () -> Void
     
-    init(colorList: [colorModel]) {
+    init(colorList: [colorModel], dismiss: @escaping () -> Void) {
         self.colorList = colorList
+        self.dismiss = dismiss
     }
+    
+    
     var body: some View {
         
         ZStack {
-            Color("bgColor")
+            Color("bgColor").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Spacer().frame(height: 10)
+                Spacer().frame(height: 20)
                 HStack {
                     Text("Create Palette")
                         .font(.system(size: 26, weight: .bold))
@@ -36,6 +40,7 @@ struct saveBottomSheet: View {
                         
                         withAnimation(Animation.spring().delay(0.2)) {
                             self.scale = 1
+                            dismiss()
                         }
                     }, label: {
                         Text("X")
@@ -83,27 +88,27 @@ struct saveBottomSheet: View {
                 
                 Spacer().frame(height: 50)
                 
-        
-                Button(action: {
-                        self.scale2 = 1.4
-                        
-                        withAnimation(Animation.spring().delay(0.2)) {
-                            self.scale2 = 1
-                        }
-                    }, label: {
-                        Text("Save").frame(width: 96)
-                            .font(.system(size: 20, weight: .semibold))
-                    }).padding().padding(.bottom, 6).background(
-                        Image(name.count > 2  ? "btnBgEnabled" : "btnBg")
-                            .resizable()
-                            .edgesIgnoringSafeArea(.all)
-                            .frame(height: 64))
-                    .foregroundColor(name.count > 2  ? .black : .gray)
-                    .scaleEffect(scale2)
-                    .animation(.linear, value: scale2)
-                    .buttonStyle(NoTapAnimationStyle())
-                    
                 
+                Button(action: {
+                    self.scale2 = 1.4
+                    
+                    withAnimation(Animation.spring().delay(0.2)) {
+                        self.scale2 = 1
+                    }
+                }, label: {
+                    Text("Save").frame(width: 96)
+                        .font(.system(size: 20, weight: .semibold))
+                }).padding().padding(.bottom, 6).background(
+                    Image(name.count > 2  ? "btnBgEnabled" : "btnBg")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        .frame(height: 64))
+                .foregroundColor(name.count > 2  ? .black : .gray)
+                .scaleEffect(scale2)
+                .animation(.linear, value: scale2)
+                .buttonStyle(NoTapAnimationStyle())
+                
+                Spacer().frame(height: 20)
             }
             
         }
@@ -111,5 +116,7 @@ struct saveBottomSheet: View {
 }
 
 #Preview {
-    saveBottomSheet(colorList: [])
+    saveBottomSheet(colorList: [], dismiss: {
+        
+    })
 }
