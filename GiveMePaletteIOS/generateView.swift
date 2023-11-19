@@ -140,7 +140,7 @@ struct generateView: View {
                     }
                 }
             .sheet(isPresented: $showBottomSheet, content: {
-                saveBottomSheet(colorList: [], dismiss: hideBottomSheet)
+                saveBottomSheet(colorList: ViewModel.colorList, dismiss: hideBottomSheet)
                     .presentationDetents([.height(390),.medium])
             })
             }

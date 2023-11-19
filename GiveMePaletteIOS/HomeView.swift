@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var invalidAlert : Bool = false
+    @State var savedAlert : Bool = false
     @State var addedHex : String = ""
     @State var rgbColor : String = ""
     @State private var scale = 1.0
@@ -87,10 +89,18 @@ struct HomeView: View {
             Section {
                 HStack {
                     Button(action: {
+                        if(addedHex.count > 5) {
+                            saveColor(color: "#\(addedHex)")
+                            savedAlert.toggle()
+                        }
+                        else if(addedHex.count > 2) {
+                            invalidAlert.toggle()
+                        }
                         self.scale = 1.4
                         
                         withAnimation(Animation.spring().delay(0.2)) {
                             self.scale = 1
+                         
                         }
                     }, label: {
                         Text("Save").frame(width: 78)
@@ -104,11 +114,28 @@ struct HomeView: View {
                     .scaleEffect(scale)
                     .animation(.linear, value: scale)
                     .buttonStyle(NoTapAnimationStyle())
+                    .alert(LocalizedStringKey("Invalid Hex Code"), isPresented: $invalidAlert, actions: {
+                        Button(action: {
+                            invalidAlert = false;
+                        }, label: {
+                            Text("OK") })
+                    }, message: {
+                        Text("The entered color hex is invalid, please enter a valid color")
+                    })
+                    .alert(LocalizedStringKey("Color Saved"), isPresented: $savedAlert, actions: {
+                        Button(action: {
+                            invalidAlert = false;
+                        }, label: {
+                            Text("OK") })
+                    }, message: {
+                        Text("This color is saved, check saved tab to see saved colors.")
+                    })
                     
                     
                     
                     
                     Button(action: {
+                        addedHex = ""
                         self.scale2 = 1.4
                         
                         withAnimation(Animation.spring().delay(0.2)) {
@@ -135,7 +162,6 @@ struct HomeView: View {
 struct NoTapAnimationStyle: PrimitiveButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            // Make the whole button surface tappable. Without this only content in the label is tappable and not whitespace. Order is important so add it before the tap gesture
             .contentShape(Rectangle())
             .onTapGesture(perform: configuration.trigger)
     }

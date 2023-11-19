@@ -13,6 +13,10 @@ struct savedView: View {
     @State var currentSelectedTab = 0
     
     @ObservedObject var _viewModel : _colorViewModel = _colorViewModel()
+    
+    init() {
+        _viewModel.loadData();
+    }
     var body: some View {
         ZStack {
             Color("bgColor").ignoresSafeArea(.all)
@@ -21,6 +25,7 @@ struct savedView: View {
                 Spacer().frame(height: 20)
                 HStack {
                     Button(action: {
+                        
                         self.scale = 1.4
                         currentSelectedTab = 0;
                         withAnimation(Animation.spring().delay(0.2)) {
@@ -66,7 +71,12 @@ struct savedView: View {
              
                 Spacer().frame(height: 30)
                 
-                colorsTab(colorList:  currentSelectedTab == 0 ? _viewModel.colorList : _viewModel.paletteList)
+                if(currentSelectedTab == 0) {
+                    colorsTab(colorList: _viewModel.colorList)
+                }
+                else {
+                 colorsTab(colorList:  _viewModel.paletteList)
+                }
               
                 
             }
@@ -76,6 +86,7 @@ struct savedView: View {
 }
 
 struct colorsTab : View {
+    
     
     @State var colorList : [colorModel]
    
@@ -152,31 +163,25 @@ struct _colorTile : View {
     
     
     class _colorViewModel : ObservableObject {
-        @Published var colorList : [colorModel] = [colorModel(bgColor: hexStringToUIColor(hex:"#2cabe1"), hexCode:"#2cabe1",
-                                                              isSaved: true),
-                                                   colorModel(bgColor: hexStringToUIColor(hex:"#0d9e24"), hexCode:"#0d9e24",
-                                                                                    isSaved: false),
-                                                   colorModel(bgColor: hexStringToUIColor(hex:"#d01b5c"), hexCode:"#d01b5c",
-                                                                                    isSaved: false),
-                                                   colorModel(bgColor: hexStringToUIColor(hex:"#e2b412"),
-                                                              hexCode:"#e2b412",
-                                                                                    isSaved: false),
-                                                   colorModel(bgColor: hexStringToUIColor(hex:"#8F0BBD"), hexCode:"#8F0BBD",
-                                                                                    isSaved: false),
-        ]
+        @Published var colorList : [colorModel] = []
         
-        @Published var paletteList : [colorModel] = [colorModel(bgColor: hexStringToUIColor(hex:"#0d9e24"), hexCode:"#0d9e24",
-                                                                isSaved: false),
-                               colorModel(bgColor: hexStringToUIColor(hex:"#d01b5c"), hexCode:"#d01b5c",
-                                                                isSaved: false),
-                               colorModel(bgColor: hexStringToUIColor(hex:"#e2b412"),
-                                          hexCode:"#e2b412",
-                                                                isSaved: false),colorModel(bgColor: hexStringToUIColor(hex:"#2cabe1"), hexCode:"#2cabe1",
-                                                              isSaved: true),
-                                                   colorModel(bgColor: hexStringToUIColor(hex:"#8F0BBD"), hexCode:"#8F0BBD",
-                                                                                    isSaved: false),
-        ]
+        @Published var paletteList : [colorModel] = []
         
+        func loadData() {
+            
+            if(colorList.count > 0){
+                colorList.removeAll()
+            }
+            let savedColors = getColors();
+            
+            for color in savedColors {
+                colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: true))
+            }
+        }
+        
+        init() {
+           loadData()
+        }
     }
 
 
