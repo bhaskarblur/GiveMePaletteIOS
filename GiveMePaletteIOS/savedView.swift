@@ -83,7 +83,11 @@ struct savedView: View {
                 
             }
             
-            }
+        }
+        .onAppear(perform: {
+            print("loaded")
+            _viewModel.loadData()
+        })
     }
 }
 
@@ -92,7 +96,7 @@ struct colorsTab : View {
     @State var colorList : [colorModel]
     var name : String
     @State var colorDialogOpen = false;
-    @State var selectedHex : String= ""
+    @State var selectedHex : String = ""
    
     init(colorList: [colorModel], name: String) {
         self.colorList = colorList
@@ -115,11 +119,13 @@ struct colorsTab : View {
                     colorDialogOpen = false
                 }, removeColor: {
                     if(name.lowercased().contains("color")) {
-//                            removeColor(color: _colorModel_.hexCode)
+                            removeColor(color: selectedHex)
                     }
                     else {
-//                            removeColorPalette(color: _colorModel_.hexCode)
+                            removeColorPalette(color: selectedHex)
                     }
+                    
+                    colorList.removeAll(where: { $0.hexCode == self.selectedHex })
                     colorDialogOpen.toggle()
                 }, copyColor: {
                     UIPasteboard.general.setValue(selectedHex, forPasteboardType: "public.plain-text")
@@ -187,6 +193,7 @@ struct _colorTile : View {
                 }
                
             }.frame(height: 132)
+            
         }
     }
     
@@ -197,7 +204,6 @@ struct _colorTile : View {
         @Published var paletteList : [colorModel] = []
         
         func loadData() {
-            print("savedView")
             
             if(colorList.count > 0){
                 colorList.removeAll()

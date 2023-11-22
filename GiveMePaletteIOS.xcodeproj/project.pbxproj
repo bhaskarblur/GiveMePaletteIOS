@@ -25,6 +25,7 @@
 		8C82DFE22B04DE2C00951E9D /* tabBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE12B04DE2C00951E9D /* tabBg.png */; };
 		8C82DFE42B04DE4900951E9D /* tabBgDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */; };
 		8C9279A32B0A450200161173 /* UserDefaultsImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9279A22B0A450200161173 /* UserDefaultsImpl.swift */; };
+		8CCA8FC82B0E75FC0004354D /* GenerateColorBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCA8FC72B0E75FC0004354D /* GenerateColorBottomSheet.swift */; };
 		8CF921CC2B0795FB001981CA /* colorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF921CB2B0795FB001981CA /* colorHelper.swift */; };
 		8CF921D12B079CC2001981CA /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 8CF921D02B079CC2001981CA /* ActivityIndicatorView */; };
 		8CF921D32B07A0F7001981CA /* iconBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF921D22B07A0F6001981CA /* iconBg.png */; };
@@ -33,7 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C1372D12B02B4460017ED9F /* generateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateView.swift; sourceTree = "<group>"; };
+		8C1372D12B02B4460017ED9F /* generateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8C1372D32B02B5800017ED9F /* helperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperClass.swift; sourceTree = "<group>"; };
 		8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorModel.swift; sourceTree = "<group>"; };
 		8C3A63FF2AFB2BA80074FAA5 /* GiveMePaletteIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiveMePaletteIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +53,7 @@
 		8C82DFE12B04DE2C00951E9D /* tabBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBg.png; sourceTree = "<group>"; };
 		8C82DFE32B04DE4800951E9D /* tabBgDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBgDisabled.png; sourceTree = "<group>"; };
 		8C9279A22B0A450200161173 /* UserDefaultsImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsImpl.swift; sourceTree = "<group>"; };
+		8CCA8FC72B0E75FC0004354D /* GenerateColorBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateColorBottomSheet.swift; sourceTree = "<group>"; };
 		8CF921CB2B0795FB001981CA /* colorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorHelper.swift; sourceTree = "<group>"; };
 		8CF921D22B07A0F6001981CA /* iconBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBg.png; sourceTree = "<group>"; };
 		8CF921D42B07A128001981CA /* saveBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveBottomSheet.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8C9279A22B0A450200161173 /* UserDefaultsImpl.swift */,
 				8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */,
 				8CF962882B0E154200ADD647 /* exisitingColorBottomSheet.swift */,
+				8CCA8FC72B0E75FC0004354D /* GenerateColorBottomSheet.swift */,
 			);
 			path = GiveMePaletteIOS;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */,
 				8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */,
 				8C9279A32B0A450200161173 /* UserDefaultsImpl.swift in Sources */,
+				8CCA8FC82B0E75FC0004354D /* GenerateColorBottomSheet.swift in Sources */,
 				8CF962892B0E154200ADD647 /* exisitingColorBottomSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

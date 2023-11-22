@@ -111,7 +111,7 @@ struct saveBottomSheet: View {
                         .resizable()
                         .edgesIgnoringSafeArea(.all)
                         .frame(height: 64))
-                .foregroundColor(name.count > 2  ? .black : .gray)
+                .foregroundColor(name.count > 0  ? .black : .gray)
                 .scaleEffect(scale2)
                 .animation(.linear, value: scale2)
                 .buttonStyle(NoTapAnimationStyle())

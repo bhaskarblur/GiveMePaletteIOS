@@ -61,7 +61,7 @@ struct exisitingColorBottomSheet: View {
                     .animation(.linear, value: scale)
                     .buttonStyle(NoTapAnimationStyle())
                 
-                Spacer().frame(height: 30)
+                Spacer().frame(height: 20)
                 Button(action: {
                     copyColor()
                     self.scale2 = 1.4
@@ -93,7 +93,7 @@ struct exisitingColorBottomSheet: View {
                     .animation(.linear, value: scale2)
                     .buttonStyle(NoTapAnimationStyle())
                 
-                Spacer().frame(height: 30)
+                Spacer().frame(height: 20)
                 
                 Text("Cancel").font(.system(size: 20, weight: .semibold))
                     .foregroundStyle(.black)
