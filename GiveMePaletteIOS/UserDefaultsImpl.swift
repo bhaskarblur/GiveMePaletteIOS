@@ -27,16 +27,20 @@ import Foundation
 }
  
 
-    func removeColor(index : Int) {
+    func removeColor(color : String) {
         var colors = getColors()
-        colors.remove(at: index)
-        userDefs.setValue(colors, forKey: "colors")
+       if let index_ = colors.firstIndex(of: color) {
+            colors.remove(at: index_.hashValue as Int)
+            userDefs.setValue(colors, forKey: "colors")
+         }
     }
     
-    func removeColorPalette(index : Int) {
-        var colors = getColorsPalette()
-        colors.remove(at: index)
-        userDefs.setValue(colors, forKey: "colors")
+    func removeColorPalette(color : String) {
+        var colors = getColors()
+       if let index_ = colors.firstIndex(of: color) {
+            colors.remove(at: index_.hashValue as Int)
+            userDefs.setValue(colors, forKey: "colorpalette")
+         }
     }
     
     func getColors() ->  [String] {

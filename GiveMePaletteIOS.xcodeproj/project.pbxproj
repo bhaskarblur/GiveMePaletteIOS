@@ -29,6 +29,7 @@
 		8CF921D12B079CC2001981CA /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 8CF921D02B079CC2001981CA /* ActivityIndicatorView */; };
 		8CF921D32B07A0F7001981CA /* iconBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF921D22B07A0F6001981CA /* iconBg.png */; };
 		8CF921D52B07A128001981CA /* saveBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF921D42B07A128001981CA /* saveBottomSheet.swift */; };
+		8CF962892B0E154200ADD647 /* exisitingColorBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF962882B0E154200ADD647 /* exisitingColorBottomSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		8CF921CB2B0795FB001981CA /* colorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorHelper.swift; sourceTree = "<group>"; };
 		8CF921D22B07A0F6001981CA /* iconBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBg.png; sourceTree = "<group>"; };
 		8CF921D42B07A128001981CA /* saveBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveBottomSheet.swift; sourceTree = "<group>"; };
+		8CF962882B0E154200ADD647 /* exisitingColorBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exisitingColorBottomSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				8CF921D42B07A128001981CA /* saveBottomSheet.swift */,
 				8C9279A22B0A450200161173 /* UserDefaultsImpl.swift */,
 				8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */,
+				8CF962882B0E154200ADD647 /* exisitingColorBottomSheet.swift */,
 			);
 			path = GiveMePaletteIOS;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */,
 				8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */,
 				8C9279A32B0A450200161173 /* UserDefaultsImpl.swift in Sources */,
+				8CF962892B0E154200ADD647 /* exisitingColorBottomSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

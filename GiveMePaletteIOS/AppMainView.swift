@@ -23,7 +23,7 @@ struct AppMainView: View {
         ZStack {
             Color(Color.blue).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            TabView(selection: .constant(selectedTab.hashValue)) {
+            TabView {
                 
                 HomeView()
                     .tabItem {
@@ -33,7 +33,6 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
-                    .tag("1")
                     
                     
                 generateView()
@@ -44,7 +43,7 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
-                    .tag("2")
+    
                     
                 savedView()
                     .tabItem {
@@ -54,7 +53,7 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
-                    .tag("3")
+    
                 
                 
             }

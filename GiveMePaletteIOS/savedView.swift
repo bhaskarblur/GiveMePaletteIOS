@@ -89,9 +89,10 @@ struct savedView: View {
 
 struct colorsTab : View {
     
-    
     @State var colorList : [colorModel]
     var name : String
+    @State var colorDialogOpen = false;
+    @State var selectedHex : String= ""
    
     init(colorList: [colorModel], name: String) {
         self.colorList = colorList
@@ -103,8 +104,28 @@ struct colorsTab : View {
         ScrollView {
             ForEach(colorList) { color in
                 _colorTile(colorModel: color,name: self.name)
+                    .onTapGesture {
+                        colorDialogOpen.toggle()
+                        selectedHex = color.hexCode
+                    }
                 
             }
+            .sheet(isPresented: $colorDialogOpen, content: {
+                exisitingColorBottomSheet( dismiss: {
+                    colorDialogOpen = false
+                }, removeColor: {
+                    if(name.lowercased().contains("color")) {
+//                            removeColor(color: _colorModel_.hexCode)
+                    }
+                    else {
+//                            removeColorPalette(color: _colorModel_.hexCode)
+                    }
+                    colorDialogOpen.toggle()
+                }, copyColor: {
+                    UIPasteboard.general.setValue(selectedHex, forPasteboardType: "public.plain-text")
+                    colorDialogOpen.toggle()
+                })     .presentationDetents([.height(300),.medium])
+            })
         }
     }
 }
@@ -117,6 +138,7 @@ struct _colorTile : View {
     var hslText : String
     var rgbText : String
     var name: String
+
     
     init(colorModel: colorModel, name : String) {
         self.name = name
