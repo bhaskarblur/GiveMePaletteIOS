@@ -12,6 +12,7 @@ struct saveBottomSheet: View {
     @State private var scale2 = 1.0
     @State private var name = ""
     @State private var desc = ""
+    @State private var isSaved = false;
     private let colorList : [colorModel]
     private var dismiss : () -> Void
     
@@ -66,7 +67,7 @@ struct saveBottomSheet: View {
                     
                     Text("Title*").font(.system(size: 18, weight: .semibold))
                     
-                })
+                }).font(.system(size: 18, weight: .semibold))
                 .padding().padding(.bottom, 6).background(
                     Image("fieldBg")
                         .resizable()
@@ -90,6 +91,13 @@ struct saveBottomSheet: View {
                 
                 
                 Button(action: {
+                    if(!name.isEmpty) {
+                        for color_ in colorList {
+                            saveColorPalette(color: (color_.hexCode))
+                        }
+                        
+                        isSaved.toggle()
+                    }
                     self.scale2 = 1.4
                     
                     withAnimation(Animation.spring().delay(0.2)) {
@@ -99,7 +107,7 @@ struct saveBottomSheet: View {
                     Text("Save").frame(width: 96)
                         .font(.system(size: 20, weight: .semibold))
                 }).padding().padding(.bottom, 6).background(
-                    Image(name.count > 2  ? "btnBgEnabled" : "btnBg")
+                    Image(name.count > 0  ? "btnBgEnabled" : "btnBg")
                         .resizable()
                         .edgesIgnoringSafeArea(.all)
                         .frame(height: 64))
@@ -107,7 +115,15 @@ struct saveBottomSheet: View {
                 .scaleEffect(scale2)
                 .animation(.linear, value: scale2)
                 .buttonStyle(NoTapAnimationStyle())
-                
+                .alert(LocalizedStringKey("Color Palettes Saved"), isPresented: $isSaved, actions: {
+                    Button(action: {
+                        isSaved = false;
+                        dismiss()
+                    }, label: {
+                        Text("OK") })
+                }, message: {
+                    Text("This color is saved, check saved tab to see saved colors.")
+                })
                 Spacer().frame(height: 20)
             }
             

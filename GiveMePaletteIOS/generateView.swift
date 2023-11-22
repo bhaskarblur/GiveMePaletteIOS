@@ -8,28 +8,6 @@
 import SwiftUI
 import ActivityIndicatorView
 
-class colorModel : Identifiable {
-    var id: String {
-        self.hexCode
-       }
-    @State var bgColor: UIColor ;
-    @State var hexCode : String;
-    @State var isSaved : Bool;
-    @State var name : String = "";
-    
-    init(bgColor: UIColor, hexCode: String, isSaved: Bool) {
-        self.bgColor = bgColor
-        self.hexCode = hexCode
-        self.isSaved = isSaved
-   
-    }
-    
-    func changeIsSaved(saved : Bool) {
-        self.isSaved = saved
-    }
-    
-}
-
 class colorViewModel : ObservableObject {
     @Published var colorList : [colorModel] = []
     @Published var isNotLoaded = true;
@@ -48,7 +26,7 @@ class colorViewModel : ObservableObject {
         }
         for color in randomColorList {
             
-            self.colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: false))
+            self.colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: false, name: "Colors"))
         }
         
      

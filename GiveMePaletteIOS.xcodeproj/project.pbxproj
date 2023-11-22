@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8C1372D22B02B4460017ED9F /* generateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1372D12B02B4460017ED9F /* generateView.swift */; };
 		8C1372D42B02B5800017ED9F /* helperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1372D32B02B5800017ED9F /* helperClass.swift */; };
+		8C3239E02B0DEA4F001D3AFA /* colorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */; };
 		8C3A64032AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A64022AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift */; };
 		8C3A64052AFB2BA80074FAA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A64042AFB2BA80074FAA5 /* ContentView.swift */; };
 		8C3A64072AFB2BAB0074FAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A64062AFB2BAB0074FAA5 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		8C1372D12B02B4460017ED9F /* generateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generateView.swift; sourceTree = "<group>"; };
 		8C1372D32B02B5800017ED9F /* helperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperClass.swift; sourceTree = "<group>"; };
+		8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorModel.swift; sourceTree = "<group>"; };
 		8C3A63FF2AFB2BA80074FAA5 /* GiveMePaletteIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiveMePaletteIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C3A64022AFB2BA80074FAA5 /* GiveMePaletteIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveMePaletteIOSApp.swift; sourceTree = "<group>"; };
 		8C3A64042AFB2BA80074FAA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				8C1372D32B02B5800017ED9F /* helperClass.swift */,
 				8CF921D42B07A128001981CA /* saveBottomSheet.swift */,
 				8C9279A22B0A450200161173 /* UserDefaultsImpl.swift */,
+				8C3239DF2B0DEA4F001D3AFA /* colorModel.swift */,
 			);
 			path = GiveMePaletteIOS;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				8C3A640F2AFB2BAB0074FAA5 /* GiveMePaletteIOS.xcdatamodeld in Sources */,
 				8C1372D42B02B5800017ED9F /* helperClass.swift in Sources */,
 				8C3A64162AFB2C400074FAA5 /* AppMainView.swift in Sources */,
+				8C3239E02B0DEA4F001D3AFA /* colorModel.swift in Sources */,
 				8C3A640C2AFB2BAB0074FAA5 /* Persistence.swift in Sources */,
 				8C3A64182AFB39B50074FAA5 /* HomeView.swift in Sources */,
 				8CF921D52B07A128001981CA /* saveBottomSheet.swift in Sources */,

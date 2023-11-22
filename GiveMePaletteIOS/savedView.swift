@@ -15,8 +15,10 @@ struct savedView: View {
     @ObservedObject var _viewModel : _colorViewModel = _colorViewModel()
     
     init() {
+
         _viewModel.loadData();
     }
+    
     var body: some View {
         ZStack {
             Color("bgColor").ignoresSafeArea(.all)
@@ -72,10 +74,10 @@ struct savedView: View {
                 Spacer().frame(height: 30)
                 
                 if(currentSelectedTab == 0) {
-                    colorsTab(colorList: _viewModel.colorList)
+                    colorsTab(colorList: _viewModel.colorList,name: "Color")
                 }
                 else {
-                 colorsTab(colorList:  _viewModel.paletteList)
+                    colorsTab(colorList: _viewModel.paletteList, name: "Palette")
                 }
               
                 
@@ -89,15 +91,18 @@ struct colorsTab : View {
     
     
     @State var colorList : [colorModel]
+    var name : String
    
-    init(colorList: [colorModel]) {
+    init(colorList: [colorModel], name: String) {
         self.colorList = colorList
+        self.name = name
     }
+    
     var body: some View {
         
         ScrollView {
             ForEach(colorList) { color in
-                _colorTile(colorModel: color)
+                _colorTile(colorModel: color,name: self.name)
                 
             }
         }
@@ -111,8 +116,10 @@ struct _colorTile : View {
     var hsl : Hsl
     var hslText : String
     var rgbText : String
+    var name: String
     
-    init(colorModel: colorModel) {
+    init(colorModel: colorModel, name : String) {
+        self.name = name
         self._colorModel_ = colorModel
         self.rgb = hexStringToRGBA(hex: colorModel.hexCode);
         self.hsl = hslFromColor(Color(red:  rgb.red, green:  rgb.green, blue: rgb.blue))
@@ -143,7 +150,7 @@ struct _colorTile : View {
                     
                     
                     HStack {
-                        Text(_colorModel_.name.isEmpty ? "Color" : _colorModel_.name)
+                        Text(name)
                             .foregroundStyle(.white)
                             .font(.system(size: 19, weight: .medium))
                         
@@ -168,20 +175,27 @@ struct _colorTile : View {
         @Published var paletteList : [colorModel] = []
         
         func loadData() {
+            print("savedView")
             
             if(colorList.count > 0){
                 colorList.removeAll()
             }
+            if(paletteList.count > 0) {
+                paletteList.removeAll()
+            }
+            
             let savedColors = getColors();
+            let savedPalettes = getColorsPalette();
             
             for color in savedColors {
-                colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: true))
+                colorList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: true, name: "Colors"))
+            }
+            
+            for color in savedPalettes {
+                paletteList.append(colorModel(bgColor: hexStringToUIColor(hex: color), hexCode: color, isSaved: true, name: "Palettes"))
             }
         }
         
-        init() {
-           loadData()
-        }
     }
 
 

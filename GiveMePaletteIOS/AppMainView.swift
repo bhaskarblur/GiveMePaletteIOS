@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct AppMainView: View {
+    
+    let homeView_ = HomeView()
+    let generateView_ = generateView()
+    let savedView_ = savedView()
+    var selectedTab : any Hashable = "1"
+    
     init() {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .medium)], for: .selected)
@@ -17,7 +23,7 @@ struct AppMainView: View {
         ZStack {
             Color(Color.blue).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            TabView {
+            TabView(selection: .constant(selectedTab.hashValue)) {
                 
                 HomeView()
                     .tabItem {
@@ -27,6 +33,7 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
+                    .tag("1")
                     
                     
                 generateView()
@@ -37,6 +44,7 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
+                    .tag("2")
                     
                 savedView()
                     .tabItem {
@@ -46,9 +54,11 @@ struct AppMainView: View {
                                 .font(.system(size: 22))
                         }
                     }
+                    .tag("3")
                 
                 
-            }.accentColor(.black)
+            }
+            .accentColor(.black)
     
         }
 
